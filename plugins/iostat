@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+read _ _ kb_read_s kb_written_s kb_read kb_written \
+    <<< $(iostat -g ALL -H -k | grep 'ALL')
+
+echo "io_kb_read: ${kb_read}"
+echo "io_kb_read_s: ${kb_read_s}"
+echo "io_kb_written: ${kb_written}"
+echo "io_kb_written_s: ${kb_written_s}"

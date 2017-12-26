@@ -1,0 +1,7 @@
+#!/bin/bash
+
+levels=(alert crit err warn notice)
+for level in ${levels[@]}; do
+    count=$(dmesg -l ${level} | wc -l)
+    echo "dmesg_total_${level}: ${count}"
+done

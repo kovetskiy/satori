@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euo pipefail
+
+read _ _ used free shared buffer available \
+    <<< $(free -m | head -n  2 | tail -n 1)
+
+echo "mem_used: ${used}"
+echo "mem_free: ${free}"
+echo "mem_shared: ${shared}"
+echo "mem_buffer: ${buffer}"
+echo "mem_available: ${available}"
